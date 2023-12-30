@@ -58,7 +58,7 @@ nrf:
   name: nrf
   replicaCount: 1
   image:
-    name: towards5gs/free5gc-nrf
+    name: danilogranadosg/free5gc-nrf
     pullPolicy: Always
   volume:
     mount: /free5gc/config/

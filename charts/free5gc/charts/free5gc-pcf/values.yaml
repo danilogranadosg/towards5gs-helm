@@ -49,7 +49,7 @@ pcf:
   name: pcf
   replicaCount: 1
   image:
-    name: towards5gs/free5gc-pcf
+    name: danilogranadosg/free5gc-pcf
     pullPolicy: Always
   service:
     type: ClusterIP

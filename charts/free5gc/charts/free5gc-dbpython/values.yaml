@@ -41,7 +41,7 @@ dbpython:
   name: dbpython
   replicaCount: 1
   image:
-    name: towards5gs/free5gc-dbpython
+    name: danilogranadosg/free5gc-dbpython
     pullPolicy: Always
   podAnnotations: {}
     # additional annotations

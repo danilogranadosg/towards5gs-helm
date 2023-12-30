@@ -50,10 +50,11 @@ global:
 
 initcontainers:
   curl:
-    registry: towards5gs
+    registry: danilogranadosg
     image: initcurl
     tag: "1.0.0"
   busybox:
+    registry: danilogranadosg
     image: busybox
     tag: "1.32.0"
 

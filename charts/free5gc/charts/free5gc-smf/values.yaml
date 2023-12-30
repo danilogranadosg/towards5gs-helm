@@ -35,7 +35,7 @@ global:
     enabled: true
     name: n4network
     type: ipvlan
-    masterIf: eth0
+    masterIf: enp0s8
     subnetIP: 10.100.50.240
     cidr: 29
     gatewayIP: 10.100.50.246

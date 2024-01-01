@@ -53,7 +53,7 @@ webui:
   replicaCount: 1
   image:
     name: danilogranadosg/free5gc-webui
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
   service:
     name: webui-service
     type: NodePort

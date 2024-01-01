@@ -53,7 +53,7 @@ udr:
   replicaCount: 1
   image:
     name: danilogranadosg/free5gc-udr
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
   service:
     type: ClusterIP
     port: 80

@@ -43,7 +43,7 @@ dbpython:
   replicaCount: 1
   image:
     name: danilogranadosg/free5gc-dbpython
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
   podAnnotations: {}
     # additional annotations
   imagePullSecrets: []

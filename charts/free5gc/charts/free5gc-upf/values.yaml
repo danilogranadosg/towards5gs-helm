@@ -62,7 +62,7 @@ upf:
   replicaCount: 1
   image:
     name: danilogranadosg/free5gc-upf
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
   configmap:
     wrapperAdditionalCommands: ""
     # wrapperAdditionalCommands: |

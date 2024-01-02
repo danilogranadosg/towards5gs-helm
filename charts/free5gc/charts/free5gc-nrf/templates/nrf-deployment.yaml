@@ -45,7 +45,8 @@ spec:
       initContainers:
       - name: wait-mongo
         {{- with $.Values.initcontainers.busybox }}
-        image: {{ .registry }}/{{ .image }}:{{ .tag }}/{{ .imagePullPolicy }}
+        image: {{ .registry }}/{{ .image }}:{{ .tag }}
+        imagePullPolicy: {{ .imagePullPolicy }}
         {{- end }}
         env:
         - name: DEPENDENCIES

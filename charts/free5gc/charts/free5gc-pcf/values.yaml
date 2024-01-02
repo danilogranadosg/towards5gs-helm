@@ -30,11 +30,11 @@ global:
 
 initcontainers:
   curl:
-    registry: danilogranadosg
+    registry: 172.23.23.222:5000
     image: initcurl
     tag: "1.0.0"
   busybox:
-    registry: danilogranadosg
+    registry: 172.23.23.222:5000
     image: busybox
     tag: "1.32.0"
 
@@ -50,7 +50,7 @@ pcf:
   name: pcf
   replicaCount: 1
   image:
-    name: danilogranadosg/free5gc-pcf
+    name: 172.23.23.222:5000/free5gc-pcf
     pullPolicy: IfNotPresent
   service:
     type: ClusterIP

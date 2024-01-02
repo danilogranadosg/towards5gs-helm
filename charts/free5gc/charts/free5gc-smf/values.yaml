@@ -43,11 +43,11 @@ global:
 
 initcontainers:
   curl:
-    registry: danilogranadosg
+    registry: 172.23.23.222:5000
     image: initcurl
     tag: "1.0.0"
   busybox:
-    registry: danilogranadosg
+    registry: 172.23.23.222:5000
     image: busybox
     tag: "1.32.0"
 
@@ -57,7 +57,7 @@ smf:
   name: smf
   replicaCount: 1
   image:
-    name: danilogranadosg/free5gc-smf
+    name: 172.23.23.222:5000/free5gc-smf
     pullPolicy: IfNotPresent
   service:
     type: ClusterIP

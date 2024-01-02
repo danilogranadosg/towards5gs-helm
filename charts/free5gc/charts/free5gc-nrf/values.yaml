@@ -30,12 +30,12 @@ global:
 
 initcontainers:
   curl:
-    registry: danilogranadosg
+    registry: 172.23.23.222:5000
     image: initcurl
     tag: "1.0.0"
     imagePullPolicy: IfNotPresent
   busybox:
-    registry: danilogranadosg
+    registry: 172.23.23.222:5000
     image: busybox
     tag: "1.32.0"
     imagePullPolicy: IfNotPresent
@@ -61,7 +61,7 @@ nrf:
   name: nrf
   replicaCount: 1
   image:
-    name: danilogranadosg/free5gc-nrf
+    name: 172.23.23.222:5000/free5gc-nrf
     pullPolicy: IfNotPresent
   volume:
     mount: /free5gc/config/

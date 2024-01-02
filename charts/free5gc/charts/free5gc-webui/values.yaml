@@ -30,12 +30,12 @@ global:
 
 initcontainers:
   curl:
-    registry: danilogranadosg
+    registry: 172.23.23.222:5000
     image: initcurl
     tag: "1.0.0"
     imagePullPolicy: IfNotPresent
   busybox:
-    registry: danilogranadosg
+    registry: 172.23.23.222:5000
     image: busybox
     tag: "1.32.0"
     imagePullPolicy: IfNotPresent
@@ -54,7 +54,7 @@ webui:
   name: webui
   replicaCount: 1
   image:
-    name: danilogranadosg/free5gc-webui
+    name: 172.23.23.222:5000/free5gc-webui
     pullPolicy: IfNotPresent
   service:
     name: webui-service

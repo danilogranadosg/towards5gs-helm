@@ -27,10 +27,15 @@ First check that the Linux kernel version on Kubernetes worker nodes is `5.0.0-2
 ```console
 uname -r
 ```
+### User-plane Supporting Packages
+```console
+sudo apt -y update
+sudo apt -y install git gcc g++ cmake autoconf libtool pkg-config libmnl-dev libyaml-dev
+```
 
 Then, on each worker node, install the [gtp5g kernel module](https://github.com/free5gc/gtp5g). 
 ```console
-git clone -b v0.3.1 https://github.com/free5gc/gtp5g.git
+git clone -b v0.8.3 https://github.com/free5gc/gtp5g.git
 cd gtp5g
 make
 sudo make install

@@ -127,7 +127,7 @@ upf1:
   replicaCount: 1
   image:
     name: 172.23.23.222:5000/free5gc-upf
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
   configmap:
     wrapperAdditionalCommands: ""
     # wrapperAdditionalCommands: |
@@ -191,7 +191,7 @@ upf2:
   replicaCount: 1
   image:
     name: 172.23.23.222:5000/free5gc-upf
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
   configmap:
     wrapperAdditionalCommands: ""
     # wrapperAdditionalCommands: |
@@ -255,7 +255,7 @@ upfb:
   replicaCount: 1
   image:
     name: 172.23.23.222:5000/free5gc-upf
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
   configmap:
     wrapperAdditionalCommands: ""
     # wrapperAdditionalCommands: |

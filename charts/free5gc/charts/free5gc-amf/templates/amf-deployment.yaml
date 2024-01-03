@@ -54,7 +54,6 @@ spec:
       - name: wait-nrf
         {{- with $.Values.initcontainers.curl }}
         image: {{ .registry }}/{{ .image }}:{{ .tag }}
-        imagePullPolicy: {{ .imagePullPolicy }}
         {{- end }}
         env:
         - name: DEPENDENCIES

@@ -33,12 +33,10 @@ initcontainers:
     registry: 172.23.23.222:5000
     image: initcurl
     tag: "1.0.0"
-    imagePullPolicy: IfNotPresent
   busybox:
     registry: 172.23.23.222:5000
     image: busybox
     tag: "1.32.0"
-    imagePullPolicy: IfNotPresent
 
 db:
   enabled: false

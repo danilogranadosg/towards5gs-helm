@@ -61,7 +61,7 @@ upf:
   name: upf
   replicaCount: 1
   image:
-    name: danilogranadosg/free5gc-upf
+    name: 172.23.23.222:5000/free5gc-upf
     pullPolicy: IfNotPresent
   configmap:
     wrapperAdditionalCommands: ""
@@ -126,7 +126,7 @@ upf1:
   name: upf1
   replicaCount: 1
   image:
-    name: danilogranadosg/free5gc-upf
+    name: 172.23.23.222:5000/free5gc-upf
     pullPolicy: Always
   configmap:
     wrapperAdditionalCommands: ""
@@ -190,7 +190,7 @@ upf2:
   name: upf2
   replicaCount: 1
   image:
-    name: danilogranadosg/free5gc-upf
+    name: 172.23.23.222:5000/free5gc-upf
     pullPolicy: Always
   configmap:
     wrapperAdditionalCommands: ""
@@ -254,7 +254,7 @@ upfb:
   name: upfb
   replicaCount: 1
   image:
-    name: danilogranadosg/free5gc-upf
+    name: 172.23.23.222:5000/free5gc-upf
     pullPolicy: Always
   configmap:
     wrapperAdditionalCommands: ""

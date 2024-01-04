@@ -40,7 +40,7 @@ projectName: ueransim
 
 initcontainers:
   sctp_test:
-    image: towards5gs/sctp_test
+    image: 172.23.23.222:5000/sctp_test
     tag: latest
 
 gnb:
@@ -48,7 +48,7 @@ gnb:
   name: gnb
   replicaCount: 1
   image:
-    name: towards5gs/ueransim-gnb
+    name: 172.23.23.222:5000/ueransim-gnb
     pullPolicy: IfNotPresent
   configmap:
     name: gnb-configmap
@@ -103,7 +103,7 @@ ue:
   name: ue
   replicaCount: 1
   image:
-    name: towards5gs/ueransim-ue
+    name: 172.23.23.222:5000/ueransim-ue
     pullPolicy: IfNotPresent
   configmap:
     name: ue-configmap
@@ -184,7 +184,7 @@ ue:
   test:
     connectivity:
       name: ue-connectivity-test
-      image: bitnami/kubectl:1.22.0
+      image: 172.23.23.222:5000/kubectl:1.22.0
       configmap:
         name: connectivity-test-configmap
       volume:

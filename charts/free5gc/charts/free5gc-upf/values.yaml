@@ -43,7 +43,7 @@ global:
     name: n6network
     type: ipvlan
     masterIf: enp0s3
-    subnetIP: 10.0.2.15
+    subnetIP: 10.0.2.16
     cidr: 24
     gatewayIP: 10.0.2.2
     excludeIP: 10.0.2.254
@@ -76,7 +76,7 @@ upf:
   n4if:  # PFCP
     ipAddress: 10.100.50.241
   n6if:  # DN
-    ipAddress: 10.0.2.15
+    ipAddress: 10.0.2.16
 
   podAnnotations: {}
     # additional annotations

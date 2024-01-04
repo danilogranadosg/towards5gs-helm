@@ -98,7 +98,7 @@ deployPcf: true
 deploySmf: true
 deployUdm: true
 deployUdr: true
-deployUpf: false
+deployUpf: true
 deployWebui: true
 deployDbPython: true
 

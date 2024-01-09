@@ -1,0 +1,17 @@
+##CONFIGURATION FOR LOCAL DOCKER REGISTRY. 
+
+##LINE TO ADD IN config.toml
+
+    [plugins."io.containerd.grpc.v1.cri".registry]
+      config_path = "/etc/containerd/certs.d"
+
+	  
+## CREATION OF hosts.toml FILE
+mkdir -p /etc/containerd/certs.d/172.23.23.222:5000
+
+cat > /etc/containerd/certs.d/172.23.23.222:5000/hosts.toml <<EOF
+server = "https://172.23.23.222:5000"
+
+[host."https://172.23.23.222:5000"]
+skip_verify = true
+EOF

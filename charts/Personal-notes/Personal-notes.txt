@@ -1,0 +1,63 @@
+##FLANNEL
+wget https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
+
+
+##FLANNEL YAML CONFIG
+vagrant@master:~$ grep -A8 containers kube-flannel.yml
+      containers:
+      - name: kube-flannel
+        image: quay.io/coreos/flannel:v0.10.0-amd64
+        command:
+        - /opt/bin/flanneld
+        args:
+        - --ip-masq
+        - --kube-subnet-mgr
+        - --iface=enp0s8      
+		
+##KUBEADM JOIN
+kubeadm token create --print-join-command
+
+
+## INSTALL HELM
+curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+sudo apt-get install apt-transport-https --yes
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+sudo apt-get update
+sudo apt-get install helm
+
+
+##INSTALL MULTUS
+git clone https://github.com/k8snetworkplumbingwg/multus-cni.git
+cat ./deployments/multus-daemonset.yml | kubectl apply -f -
+
+##towards5gs personal repo
+git clone https://github.com/danilogranadosg/towards5gs-helm.git
+
+##DEPLOY FREE5GC
+helm -n free5gc install free5gc-v1 ./free5gc/
+helm -n free5gc uninstall free5gc-v1 
+
+##DEPLOY UERANSIM
+helm -n free5gc install ueransim-v1 ./ueransim/
+helm -n free5gc uninstall ueransim-v1 
+
+
+
+##CONNECTIVITY TESTS
+1. Run UE connectivity test by running these commands:
+  helm --namespace free5gc test ueransim-v1
+
+If you want to run connectivity tests manually, follow:
+
+1. Get the UE Pod name by running:
+  export POD_NAME=$(kubectl get pods --namespace free5gc -l "component=ue" -o jsonpath="{.items[0].metadata.name}")
+
+2. Check that uesimtun0 interface has been created by running these commands:
+  kubectl --namespace free5gc logs $POD_NAME
+  kubectl --namespace free5gc exec -it $POD_NAME -- ip address
+
+3. Try to access internet from the UE by running:
+  kubectl --namespace free5gc exec -it $POD_NAME -- ping -I uesimtun0 www.google.com
+  kubectl --namespace free5gc exec -it $POD_NAME -- curl --interface uesimtun0 www.google.com
+  kubectl --namespace free5gc exec -it $POD_NAME -- traceroute -i uesimtun0 www.google.com
+  

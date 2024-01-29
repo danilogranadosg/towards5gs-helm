@@ -17,16 +17,6 @@ vagrant@master:~$ grep -A8 containers kube-flannel.yml
 ##KUBEADM JOIN
 kubeadm token create --print-join-command
 
-##PREPARE CONTROL PLANE
-sudo apt -y update
-sudo apt -y install git gcc g++ cmake autoconf libtool pkg-config libmnl-dev libyaml-dev
-
-git clone -b v0.8.3 https://github.com/free5gc/gtp5g.git
-cd gtp5g
-make
-sudo make install
-
-
 
 ## INSTALL HELM
 curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
@@ -71,42 +61,3 @@ If you want to run connectivity tests manually, follow:
   kubectl --namespace free5gc exec -it $POD_NAME -- curl --interface uesimtun0 www.google.com
   kubectl --namespace free5gc exec -it $POD_NAME -- traceroute -i uesimtun0 www.google.com
   
----------------------------------------------------------------------------------------------------------
-
-##MULTI CLUSTER
-
-##CONTROL PLANE 
-helm -n free5gc install nrf ./free5gc-nrf/
-helm -n free5gc install udr ./free5gc-udr/
-helm -n free5gc install udm ./free5gc-udm/
-helm -n free5gc install ausf ./free5gc-ausf/
-helm -n free5gc install nssf ./free5gc-nssf/
-helm -n free5gc install amf ./free5gc-amf/
-helm -n free5gc install pcf ./free5gc-pcf/
-helm -n free5gc install smf ./free5gc-smf/
-helm -n free5gc install webui ./free5gc-webui/
-
-helm -n free5gc uninstall nrf 
-helm -n free5gc uninstall udr 
-helm -n free5gc uninstall udm 
-helm -n free5gc uninstall ausf
-helm -n free5gc uninstall nssf
-helm -n free5gc uninstall amf 
-helm -n free5gc uninstall pcf 
-helm -n free5gc uninstall smf 
-helm -n free5gc uninstall webui
-
-
-##USER PLNE
-helm -n free5gc install upf ./free5gc-upf/
-
-helm -n free5gc uninstall upf
-
-
-
-export POD_NAME=$(kubectl get pods --namespace free5gc -l "app.kubernetes.io/name=free5gc-nrf,app.kubernetes.io/instance=nrf" -o jsonpath="{.items[0].metadata.name}")
-export CONTAINER_PORT=$(kubectl get pod --namespace free5gc $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
-kubectl --namespace free5gc port-forward $POD_NAME 8080:$CONTAINER_PORT
-echo "Visit http://127.0.0.1:8080 to use your application"
- 
- 

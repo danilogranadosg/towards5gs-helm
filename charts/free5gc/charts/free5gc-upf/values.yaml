@@ -27,7 +27,7 @@ global:
     masterIf: enp0s8
     subnetIP: 10.100.50.240
     cidr: 29
-    gatewayIP: 10.0.2.2
+    gatewayIP: 10.100.50.246
     excludeIP: 10.100.50.246
   n3network:
     enabled: true

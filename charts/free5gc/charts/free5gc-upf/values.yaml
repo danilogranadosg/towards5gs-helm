@@ -43,7 +43,7 @@ global:
     name: n6network
     type: macvlan
     masterIf: enp0s3
-    subnetIP: 10.0.2.20
+    subnetIP: 10.0.2.0
     cidr: 24
     gatewayIP: 10.0.2.2
     excludeIP: 10.0.2.254
@@ -76,7 +76,7 @@ upf:
   n4if:  # PFCP
     ipAddress: 10.100.50.241
   n6if:  # DN
-    ipAddress: 10.0.2.20
+    ipAddress: 10.0.2.15
 
   podAnnotations: {}
     # additional annotations

@@ -11,7 +11,7 @@
 # Software description: An open-source project providing Helm charts to deploy 5G components (Core + RAN) on top of Kubernetes
 #
 global:
-  userPlaneArchitecture: ulcl  # possible values are "single" and "ulcl"
+  userPlaneArchitecture: single  # possible values are "single" and "ulcl"
 
 free5gc-smf:
  smf:

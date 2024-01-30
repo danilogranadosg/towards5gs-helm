@@ -20,7 +20,7 @@ vagrant@master:~$ grep -A8 containers kube-flannel.yml
 		
 kubectl apply -f kube-flannel.yml
 
-		
+	
 ##KUBEADM JOIN
 kubeadm token create --print-join-command
 
@@ -42,13 +42,17 @@ cat ./deployments/multus-daemonset.yml | kubectl apply -f -
 git clone https://github.com/danilogranadosg/towards5gs-helm.git
 
 ##DEPLOY FREE5GC
-helm -n free5gc install free5gc-v1 ./free5gc/
-helm -n free5gc uninstall free5gc-v1 
+helm -n free5gc install free5gc ./free5gc/
+helm -n free5gc uninstall free5gc
 
 ##DEPLOY UERANSIM
-helm -n free5gc install ueransim-v1 ./ueransim/
-helm -n free5gc uninstall ueransim-v1 
+helm -n free5gc install ueransim ./ueransim/
+helm -n free5gc uninstall ueransim 
 
+##UPF DNS & TCPDUMP
+echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+apk update
+apk add --upgrade tcpdump
 
 
 ##CONNECTIVITY TESTS
@@ -121,3 +125,7 @@ helm -n free5gc uninstall amf
 helm -n free5gc uninstall pcf 
 helm -n free5gc uninstall smf 
 helm -n free5gc uninstall webui
+
+helm -n free5gc install ueransim ./ueransim/
+
+helm -n free5gc uninstall ueransim

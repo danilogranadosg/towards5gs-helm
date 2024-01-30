@@ -1,5 +1,7 @@
 ##CONFIGURATION FOR LOCAL DOCKER REGISTRY. 
 
+##Install Containerd (using binaries), runc, crictl, with guide from official site. 
+
 ##LINE TO ADD IN config.toml
 
     [plugins."io.containerd.grpc.v1.cri".registry]

@@ -23,7 +23,7 @@ global:
   n4network:
     enabled: true
     name: n4network
-    type: ipvlan
+    type: macvlan
     masterIf: enp0s8
     subnetIP: 10.100.50.240
     cidr: 29
@@ -41,7 +41,7 @@ global:
   n6network:
     enabled: true
     name: n6network
-    type: ipvlan
+    type: macvlan
     masterIf: enp0s3
     subnetIP: 10.0.2.0
     cidr: 24
@@ -50,7 +50,7 @@ global:
   n9network:
     enabled: true
     name: n9network
-    type: ipvlan
+    type: macvlan
     masterIf: enp0s8
     subnetIP: 10.100.50.224
     cidr: 29

@@ -52,7 +52,7 @@ global:
   n3network:
     enabled: true
     name: n3network
-    type: ipvlan
+    type: macvlan
     masterIf: enp0s8
     subnetIP: 10.100.50.232
     cidr: 29

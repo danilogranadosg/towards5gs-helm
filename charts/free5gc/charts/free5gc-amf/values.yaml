@@ -41,7 +41,7 @@ global:
   n2network:
     enabled: true
     name: n2network
-    type: macvlan
+    type: ipvlan
     masterIf: enp0s8
     subnetIP: 10.100.50.248
     cidr: 29

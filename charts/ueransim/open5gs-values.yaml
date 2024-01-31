@@ -15,7 +15,7 @@ global:
   n2network:
     name: n2network
     type: macvlan
-    masterIf: eth0
+    masterIf: enp0s8
     subnetIP: 10.100.50.248
     cidr: 29
     gatewayIP: 10.100.50.254
@@ -23,7 +23,7 @@ global:
   n3network:
     name: n3network
     type: macvlan
-    masterIf: eth0
+    masterIf: enp0s8
     subnetIP: 10.100.50.232
     cidr: 29
     gatewayIP: 10.100.50.238

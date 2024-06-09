@@ -204,7 +204,7 @@ smf:
           - dest: 10.0.2.19/24 # the destination IP address on Data Network (DN)
             # the order of UPF nodes in this path. We use the UPF's name to represent each UPF node.
             # The UPF's name should be consistent with smfcfg.yaml
-            path: [BranchingUPF, AnchorUPF2]
+            path: [BranchingUPF, AnchorUPF1]
 
       UE2: # Group Name
         members:

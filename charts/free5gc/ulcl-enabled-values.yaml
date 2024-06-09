@@ -72,11 +72,13 @@ free5gc-smf:
               - interfaceType: N3
                 endpoints:
                   - 10.100.50.233
-                networkInstance: internet
+                networkInstances:
+                  - internet # Data Network Name (DNN)
               - interfaceType: N9
                 endpoints:
                   - 10.100.50.225
-                networkInstance: internet
+                networkInstances:
+                  - internet # Data Network Name (DNN)
           AnchorUPF1:
             type: UPF
             node_id: 10.100.50.242 # PFCP address
@@ -92,7 +94,8 @@ free5gc-smf:
               - interfaceType: N9
                 endpoints:
                   - 10.100.50.226 # AnchorUPF1 N9 address
-                networkInstance: internet
+                networkInstances:
+                  - internet # Data Network Name (DNN)
           AnchorUPF2:
             type: UPF
             node_id: 10.100.50.243 # PFCP address
@@ -108,7 +111,8 @@ free5gc-smf:
               - interfaceType: N9
                 endpoints:
                   - 10.100.50.227 # AnchorUPF2 N9 address
-                networkInstance: internet
+                networkInstances:
+                  - internet # Data Network Name (DNN)
         links:
           - A: gNB1
             B: BranchingUPF

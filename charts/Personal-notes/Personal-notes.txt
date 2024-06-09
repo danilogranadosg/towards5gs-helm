@@ -123,6 +123,8 @@ helm -n free5gc install upf ./free5gc-upf/
 
 helm -n free5gc uninstall upf
 
+cd towards5gs-helm/charts/
+
 helm -n free5gc install ueransim ./ueransim/
 
 helm -n free5gc uninstall ueransim
@@ -161,3 +163,49 @@ kubectl -n kube-system edit deploy metrics-server
 args:
 - --kubelet-insecure-tls
 - --kubelet-preferred-address-types=InternalIP
+
+
+ULCL:
+
+USER PLANE:
+
+git clone https://github.com/danilogranadosg/towards5gs-helm.git
+
+cd towards5gs-helm/charts/free5gc/charts
+
+helm -n free5gc install -f ./free5gc-upf/ulcl-enabled-values.yaml upf ./free5gc-upf/	
+
+helm -n free5gc uninstall upf
+
+cd towards5gs-helm/charts/
+
+helm -n free5gc install ueransim ./ueransim/
+
+helm -n free5gc uninstall ueransim
+
+
+##CONTROL PLANE
+
+git clone https://github.com/danilogranadosg/towards5gs-helm.git
+
+cd towards5gs-helm/charts/free5gc/charts
+
+helm -n free5gc install nrf ./free5gc-nrf/
+helm -n free5gc install udr ./free5gc-udr/
+helm -n free5gc install udm ./free5gc-udm/
+helm -n free5gc install ausf ./free5gc-ausf/
+helm -n free5gc install nssf ./free5gc-nssf/
+helm -n free5gc install amf ./free5gc-amf/
+helm -n free5gc install pcf ./free5gc-pcf/
+helm -n free5gc install -f ./free5gc-smf/ulcl-enabled-values.yaml smf ./free5gc-smf/	
+helm -n free5gc install webui ./free5gc-webui/
+
+helm -n free5gc uninstall nrf 
+helm -n free5gc uninstall udr 
+helm -n free5gc uninstall udm 
+helm -n free5gc uninstall ausf
+helm -n free5gc uninstall nssf
+helm -n free5gc uninstall amf 
+helm -n free5gc uninstall pcf 
+helm -n free5gc uninstall smf 
+helm -n free5gc uninstall webui

@@ -49,6 +49,30 @@ helm -n free5gc uninstall free5gc
 helm -n free5gc install ueransim ./ueransim/
 helm -n free5gc uninstall ueransim 
 
+##Promiscuous mode:
+sudo ip link set enp0s8 promisc on
+sudo ip link set enp0s3 promisc on
+netstat -i
+
+##ENABLE PROMISCUOUS MODE PERMANENTLY
+$ sudo bash -c 'cat > /etc/systemd/system/bridge-promisc.service' <<'EOS'
+[Unit]
+Description=Makes interfaces run in promiscuous mode at boot
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/ip link set dev enp0s8 promisc on
+ExecStart=/usr/sbin/ip link set dev enp0s3 promisc on
+TimeoutStartSec=0
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target
+EOS
+
+$ sudo systemctl enable bridge-promisc
+
 ##UPF DNS & TCPDUMP
 echo "nameserver 8.8.8.8" >> /etc/resolv.conf
 apk update
@@ -57,7 +81,7 @@ apk add --upgrade tcpdump
 
 ##CONNECTIVITY TESTS
 1. Run UE connectivity test by running these commands:
-  helm --namespace free5gc test ueransim-v1
+  helm --namespace free5gc test ueransim
 
 If you want to run connectivity tests manually, follow:
 
@@ -99,6 +123,10 @@ helm -n free5gc install upf ./free5gc-upf/
 
 helm -n free5gc uninstall upf
 
+helm -n free5gc install ueransim ./ueransim/
+
+helm -n free5gc uninstall ueransim
+
 
 ##CONTROL PLANE
 
@@ -126,6 +154,10 @@ helm -n free5gc uninstall pcf
 helm -n free5gc uninstall smf 
 helm -n free5gc uninstall webui
 
-helm -n free5gc install ueransim ./ueransim/
+##METRICS SERVER
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+kubectl -n kube-system edit deploy metrics-server
 
-helm -n free5gc uninstall ueransim
+args:
+- --kubelet-insecure-tls
+- --kubelet-preferred-address-types=InternalIP

@@ -79,14 +79,6 @@ apk update
 apk add --upgrade tcpdump
 
 
-##KUBE PROMETHEUS
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm repo update
-helm install kube-prometheus -n monitoring prometheus-community/kube-prometheus-stack --create-namespace 
-
-helm -n monitoring uninstall kube-prometheus
-
-
 ##CONNECTIVITY TESTS
 1. Run UE connectivity test by running these commands:
   helm --namespace free5gc test ueransim
@@ -105,15 +97,13 @@ If you want to run connectivity tests manually, follow:
   kubectl --namespace free5gc exec -it $POD_NAME -- curl --interface uesimtun0 www.google.com
   kubectl --namespace free5gc exec -it $POD_NAME -- traceroute -i uesimtun0 www.google.com
 
--------------------------------------------------------------------------------------------------------------------------
 
-##MEC:
+##USER PLANE CONFIGURATION (EDGE DEPLOYMENT):
 
 ##K8S CONTROL PLANE:
 
 POD_CIDR=10.234.0.0/16
 SERVICE_CIDR=10.86.0.0/16
-
 
 ##USER PLANE CONFIGURATION
 sudo apt -y update
@@ -174,7 +164,6 @@ args:
 - --kubelet-insecure-tls
 - --kubelet-preferred-address-types=InternalIP
 
--------------------------------------------------------------------------------------------------------------------------
 
 ULCL:
 

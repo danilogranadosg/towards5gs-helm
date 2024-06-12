@@ -39,7 +39,7 @@ global:
         protocol: SCTP
         type: NodePort
   n2network:
-    enabled: true
+    enabled: false
     name: n2network
     type: macvlan
     masterIf: enp0s8

@@ -40,13 +40,13 @@ global:
         type: NodePort
   n2network:
     enabled: false
-#    name: n2network
-#    type: macvlan
-#    masterIf: enp0s8
-#    subnetIP: 10.100.50.248
-#    cidr: 29
-#    gatewayIP: 10.100.50.254
-#    excludeIP: 10.100.50.254
+    name: n2network
+    type: macvlan
+    masterIf: enp0s8
+    subnetIP: 10.100.50.248
+    cidr: 29
+    gatewayIP: 10.100.50.254
+    excludeIP: 10.100.50.254
 
 initcontainers:
   curl:

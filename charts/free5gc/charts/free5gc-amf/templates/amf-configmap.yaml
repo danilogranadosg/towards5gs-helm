@@ -29,7 +29,7 @@ data:
 
       ngapIpList:
 {{- if $.Values.global.amf.service.ngap.enabled }}
-        - 192.168.56.101
+        - 0.0.0.0
 {{- else }}
         - {{ $.Values.global.amf.n2if.ipAddress }}
 {{- end }}

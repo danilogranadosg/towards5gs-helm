@@ -34,10 +34,10 @@ global:
     name: n3network
     type: macvlan
     masterIf: enp0s8
-    subnetIP: 10.100.50.232
-    cidr: 29
-    gatewayIP: 10.100.50.238
-    excludeIP: 10.100.50.238
+    subnetIP: 192.168.56.0
+    cidr: 24
+    gatewayIP: 192.168.56.101
+    excludeIP: 192.168.56.254
   n6network:
     enabled: true
     name: n6network
@@ -72,7 +72,7 @@ upf:
 
   # network paramters
   n3if:  # GTP-U
-    ipAddress: 10.100.50.233
+    ipAddress: 192.168.56.19
   n4if:  # PFCP
     ipAddress: 10.100.50.241
   n6if:  # DN

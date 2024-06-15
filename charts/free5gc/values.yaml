@@ -50,14 +50,14 @@ global:
 #    gatewayIP: 10.100.50.254
 #    excludeIP: 10.100.50.254
   n3network:
-    enabled: false
-#    name: n3network
-#    type: macvlan
-#    masterIf: enp0s8
-#    subnetIP: 10.100.50.232
-#    cidr: 29
-#    gatewayIP: 10.100.50.238
-#    excludeIP: 10.100.50.238
+    enabled: true
+    name: n3network
+    type: macvlan
+    masterIf: enp0s8
+    subnetIP: 192.168.56.0
+    cidr: 24
+    gatewayIP: 192.168.56.101
+    excludeIP: 192.168.56.254
   n4network:
     enabled: true
     name: n4network

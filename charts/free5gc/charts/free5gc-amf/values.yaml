@@ -32,21 +32,21 @@ global:
       ipAddress: 10.100.50.249
     service:
       ngap:
-        enabled: false
+        enabled: true
         name: amf-n2
         port: 38412
         nodeport: 31412
         protocol: SCTP
         type: NodePort
   n2network:
-    enabled: true
+    enabled: false
     name: n2network
-    type: macvlan
-    masterIf: enp0s8
-    subnetIP: 10.100.50.248
-    cidr: 29
-    gatewayIP: 10.100.50.254
-    excludeIP: 10.100.50.254
+#    type: macvlan
+#    masterIf: enp0s8
+#    subnetIP: 10.100.50.248
+#    cidr: 29
+#    gatewayIP: 10.100.50.254
+#    excludeIP: 10.100.50.254
 
 initcontainers:
   curl:

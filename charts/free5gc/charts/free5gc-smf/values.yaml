@@ -196,8 +196,6 @@ smf:
         topology: # Network topology for this group (Uplink: A->B, Downlink: B->A)
         # default path derived from this topology
         # node name should be consistent with smfcfg.yaml
-          - A: gNB1
-            B: BranchingUPF
           - A: BranchingUPF
             B: AnchorUPF1
         specificPath:

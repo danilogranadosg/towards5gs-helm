@@ -53,6 +53,13 @@ cd towards5gs-helm/charts/
 helm -n free5gc install ueransim ./ueransim/
 helm -n free5gc uninstall ueransim 
 
+##UERANSIM OPERATION
+
+cd ~/UERANSIM/build
+
+./nr-gnb -c ../config/free5gc-gnb.yaml
+./nr-ue -c ../config/free5gc-ue.yaml
+
 ##Promiscuous mode:
 sudo ip link set enp0s8 promisc on
 sudo ip link set enp0s3 promisc on
@@ -137,12 +144,6 @@ helm -n free5gc install upf ./free5gc-upf/
 
 helm -n free5gc uninstall upf
 
-cd towards5gs-helm/charts/
-
-helm -n free5gc install ueransim ./ueransim/
-
-helm -n free5gc uninstall ueransim
-
 
 ##CONTROL PLANE
 
@@ -170,6 +171,13 @@ helm -n free5gc uninstall pcf
 helm -n free5gc uninstall smf 
 helm -n free5gc uninstall webui
 
+##UERANSIM OPERATION
+
+cd ~/UERANSIM/build
+
+./nr-gnb -c ../config/free5gc-gnb.yaml
+sudo ./nr-ue -c ../config/free5gc-ue.yaml
+
 ##METRICS SERVER
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 kubectl -n kube-system edit deploy metrics-server
@@ -191,13 +199,6 @@ cd towards5gs-helm/charts/free5gc/charts
 helm -n free5gc install -f ./free5gc-upf/ulcl-enabled-values.yaml upf ./free5gc-upf/	
 
 helm -n free5gc uninstall upf
-
-cd towards5gs-helm/charts/
-
-helm -n free5gc install ueransim ./ueransim/
-
-helm -n free5gc uninstall ueransim
-
 
 ##CONTROL PLANE
 
@@ -224,3 +225,10 @@ helm -n free5gc uninstall amf
 helm -n free5gc uninstall pcf 
 helm -n free5gc uninstall smf 
 helm -n free5gc uninstall webui
+
+##UERANSIM OPERATION
+
+cd ~/UERANSIM/build
+
+./nr-gnb -c ../config/free5gc-gnb.yaml
+sudo ./nr-ue -c ../config/free5gc-ue.yaml -n 2

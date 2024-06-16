@@ -71,7 +71,7 @@ smf:
                   - internet # Data Network Name (DNN)
               - interfaceType: N9
                 endpoints:
-                  - 10.100.50.225
+                  - 192.168.56.19
                 networkInstances:
                   - internet # Data Network Name (DNN)
           AnchorUPF1:
@@ -88,7 +88,7 @@ smf:
             interfaces:
               - interfaceType: N9
                 endpoints:
-                  - 10.100.50.226 # AnchorUPF1 N9 address
+                  - 192.168.56.17 # AnchorUPF1 N9 address
                 networkInstances:
                   - internet # Data Network Name (DNN)
           AnchorUPF2:
@@ -105,7 +105,7 @@ smf:
             interfaces:
               - interfaceType: N9
                 endpoints:
-                  - 10.100.50.227 # AnchorUPF2 N9 address
+                  - 192.168.56.18 # AnchorUPF2 N9 address
                 networkInstances:
                   - internet # Data Network Name (DNN)
         links:

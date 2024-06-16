@@ -36,7 +36,7 @@ global:
     masterIf: enp0s8
     subnetIP: 192.168.56.0
     cidr: 24
-    gatewayIP: 192.168.56.101
+    gatewayIP: 
     excludeIP: 192.168.56.254
   n6network:
     enabled: true
@@ -52,10 +52,10 @@ global:
     name: n9network
     type: macvlan
     masterIf: enp0s8
-    subnetIP: 10.100.50.224
-    cidr: 29
-    gatewayIP: 10.100.50.230
-    excludeIP: 10.100.50.230
+    subnetIP: 192.168.56.0
+    cidr: 24
+    gatewayIP: 
+    excludeIP: 192.168.56.254
 
 upf:
   name: upf

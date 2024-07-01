@@ -156,7 +156,7 @@ smf:
                     dnnUpfInfoList: # DNN information list for this S-NSSAI
                       - dnn: internet
                         pools:
-                          - cidr: 10.1.0.0/16
+                          - cidr: 10.1.0.0/17
                         staticPools:
                           - cidr: 10.1.64.0/24
                   - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)

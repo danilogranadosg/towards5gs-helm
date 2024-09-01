@@ -152,8 +152,8 @@ upf1:
       add: ["NET_ADMIN"]
   resources:
     requests:
-      cpu: 500m
-      memory: 512Mi
+      cpu: 250m
+      memory: 256Mi
   readinessProbe:
     initialDelaySeconds: 0
     periodSeconds: 1
@@ -216,8 +216,8 @@ upf2:
       add: ["NET_ADMIN"]
   resources:
     requests:
-      cpu: 500m
-      memory: 512Mi
+      cpu: 250m
+      memory: 256Mi
   readinessProbe:
     initialDelaySeconds: 0
     periodSeconds: 1
@@ -282,8 +282,8 @@ upfb:
       add: ["NET_ADMIN"]
   resources:
     requests:
-      cpu: 500m
-      memory: 512Mi
+      cpu: 250m
+      memory: 256Mi
   readinessProbe:
     initialDelaySeconds: 0
     periodSeconds: 1

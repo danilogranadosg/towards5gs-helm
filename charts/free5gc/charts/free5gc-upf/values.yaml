@@ -113,7 +113,7 @@ upf:
   configuration:
     dnnList: # The DNN list supported by UPF
       - dnn: internet # Data Network Name
-        cidr: 10.1.0.0/17 # Classless Inter-Domain Routing for assigned IPv4 pool of UE
+        cidr: 10.1.0.0/16 # Classless Inter-Domain Routing for assigned IPv4 pool of UE
         natifname: n6
 
     logger: # log output setting
@@ -178,7 +178,7 @@ upf1:
   configuration:
     dnnList: # The DNN list supported by UPF
       - dnn: internet # Data Network Name
-        cidr: 10.1.0.0/17 # Classless Inter-Domain Routing for assigned IPv4 pool of UE
+        cidr: 10.1.0.0/16 # Classless Inter-Domain Routing for assigned IPv4 pool of UE
         natifname: n6
 
     logger: # log output setting
@@ -242,7 +242,7 @@ upf2:
   configuration:
     dnnList: # The DNN list supported by UPF
       - dnn: internet # Data Network Name
-        cidr: 10.1.128.0/17 # Classless Inter-Domain Routing for assigned IPv4 pool of UE
+        cidr: 10.1.0.0/16 # Classless Inter-Domain Routing for assigned IPv4 pool of UE
         natifname: n6
 
     logger: # log output setting

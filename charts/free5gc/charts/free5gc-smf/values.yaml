@@ -200,7 +200,8 @@ smf:
             path: [BranchingUPF, AnchorUPF1]
           - dest: 1.1.1.1/32
             path: [BranchingUPF, AnchorUPF2]
-
+          - dest: 172.23.23.222
+            path: [BranchingUPF]
     logger: # log output setting
       enable: true # true or false
       level: info # how detailed to output, value: trace, debug, info, warn, error, fatal, panic

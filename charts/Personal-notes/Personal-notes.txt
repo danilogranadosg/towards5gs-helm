@@ -1,6 +1,13 @@
 ##CONTAINERD
 Install containerd using binaries procedure
 
+/etc/containerd/certs.d/172.23.23.222:5000/hosts.toml
+
+server = "https://172.23.23.222:5000"
+[host."https://172.23.23.222:5000"]
+skip_verify = true
+
+
 ##FLANNEL
 wget https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
 
@@ -47,12 +54,6 @@ cd towards5gs-helm/charts/
 helm -n free5gc install free5gc ./free5gc/
 helm -n free5gc uninstall free5gc
 
-##DEPLOY UERANSIM
-cd towards5gs-helm/charts/
-
-helm -n free5gc install ueransim ./ueransim/
-helm -n free5gc uninstall ueransim 
-
 ##UERANSIM OPERATION
 
 cd ~/UERANSIM/build
@@ -94,27 +95,18 @@ apk add --upgrade tcpdump
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo update
 helm install kube-prometheus -n monitoring prometheus-community/kube-prometheus-stack --create-namespace 
+kubectl port-forward svc/kube-prometheus-grafana :80
+
 
 helm -n monitoring uninstall kube-prometheus
 
+##KUBESHARK
+git clone git@github.com:kubeshark/kubeshark.git --depth 1
+cd kubeshark/helm-chart	
+helm template .
+helm install kubeshark .
 
-##CONNECTIVITY TESTS
-1. Run UE connectivity test by running these commands:
-  helm --namespace free5gc test ueransim
-
-If you want to run connectivity tests manually, follow:
-
-1. Get the UE Pod name by running:
-  export POD_NAME=$(kubectl get pods --namespace free5gc -l "component=ue" -o jsonpath="{.items[0].metadata.name}")
-
-2. Check that uesimtun0 interface has been created by running these commands:
-  kubectl --namespace free5gc logs $POD_NAME
-  kubectl --namespace free5gc exec -it $POD_NAME -- ip address
-
-3. Try to access internet from the UE by running:
-  kubectl --namespace free5gc exec -it $POD_NAME -- ping -I uesimtun0 www.google.com
-  kubectl --namespace free5gc exec -it $POD_NAME -- curl --interface uesimtun0 www.google.com
-  kubectl --namespace free5gc exec -it $POD_NAME -- traceroute -i uesimtun0 www.google.com
+helm uninstall kubeshark
 
 -------------------------------------------------------------------------------------------------------------------------
 
@@ -226,9 +218,16 @@ helm -n free5gc uninstall pcf
 helm -n free5gc uninstall smf 
 helm -n free5gc uninstall webui
 
+
 ##UERANSIM OPERATION
 
 cd ~/UERANSIM/build
 
 ./nr-gnb -c ../config/free5gc-gnb.yaml
 sudo ./nr-ue -c ../config/free5gc-ue.yaml -n 2
+
+
+##UPF DNS & TCPDUMP
+echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+apk update
+apk add --upgrade tcpdump

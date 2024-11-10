@@ -58,11 +58,11 @@ smf:
                   sd: 010203
                 dnnUpfInfoList:
                   - dnn: internet
-              - sNssai:
-                  sst: 1
-                  sd: 112233
-                dnnUpfInfoList:
-                  - dnn: internet
+#              - sNssai:
+#                  sst: 1
+#                  sd: 112233
+#                dnnUpfInfoList:
+#                  - dnn: internet
             interfaces:
               - interfaceType: N3
                 endpoints:
@@ -84,7 +84,7 @@ smf:
                 dnnUpfInfoList:
                   - dnn: internet
                     pools:
-                    - cidr: 10.1.0.0/17
+                    - cidr: 10.60.0.0/16
             interfaces:
               - interfaceType: N9
                 endpoints:
@@ -100,8 +100,8 @@ smf:
                   sd: 010203
                 dnnUpfInfoList:
                   - dnn: internet
-                    pools:
-                    - cidr: 10.1.128.0/17
+#                    pools:
+#                    - cidr: 10.1.128.0/17
             interfaces:
               - interfaceType: N9
                 endpoints:

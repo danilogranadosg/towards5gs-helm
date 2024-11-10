@@ -159,15 +159,6 @@ smf:
                           - cidr: 10.61.0.0/1
                         staticPools:
                           - cidr: 10.61.100.0/24
-#                  - sNssai: # S-NSSAI (Single Network Slice Selection Assistance Information)
-#                      sst: 1 # Slice/Service Type (uinteger, range: 0~255)
-#                      sd: 112233 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
-#                    dnnUpfInfoList: # DNN information list for this S-NSSAI
-#                      - dnn: internet
-#                        pools:
-#                         - cidr: 10.1.128.0/17
-#                       staticPools:
-#                         - cidr: 10.1.192.0/24
             interfaces: # Interface list for this UPF
                   - interfaceType: N3 # the type of the interface (N3 or N9)
                     endpoints: # the IP address of this N3/N9 interface on this UPF
@@ -209,22 +200,6 @@ smf:
             path: [BranchingUPF, AnchorUPF1]
           - dest: 1.1.1.1/32
             path: [BranchingUPF, AnchorUPF2]
-
-#      UE2: # Group Name
-#        members:
-#        - imsi-208930000000004 # Subscription Permanent Identifier of the UE
-#        topology: # Network topology for this group (Uplink: A->B, Downlink: B->A)
-#        # default path derived from this topology
-#        # node name should be consistent with smfcfg.yaml
-#          - A: gNB1
-#            B: BranchingUPF
-#          - A: BranchingUPF
-#            B: AnchorUPF2
-#        specificPath:
-#          - dest: 129.250.35.251/32 # the destination IP address on Data Network (DN)
-#            # the order of UPF nodes in this path. We use the UPF's name to represent each UPF node.
-#            # The UPF's name should be consistent with smfcfg.yaml
-#            path: [BranchingUPF, AnchorUPF2]
 
     logger: # log output setting
       enable: true # true or false

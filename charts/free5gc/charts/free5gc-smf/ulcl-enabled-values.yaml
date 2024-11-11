@@ -42,6 +42,8 @@ smf:
                   sd: 010203
                 dnnUpfInfoList:
                   - dnn: internet
+                    pools:
+                    - cidr: 10.60.0.0/16
             interfaces:
               - interfaceType: N3
                 endpoints:
@@ -62,8 +64,6 @@ smf:
                   sd: 010203
                 dnnUpfInfoList:
                   - dnn: internet
-                    pools:
-                    - cidr: 10.60.0.0/16
             interfaces:
               - interfaceType: N9
                 endpoints:

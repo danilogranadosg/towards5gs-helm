@@ -92,8 +92,6 @@ smf:
             B: AnchorUPF1
           - A: BranchingUPF
             B: AnchorUPF2
-          - A: BranchingUPF
-            B: BranchingUPF
       locality: area1 # Name of the location where a set of AMF, SMF and UPFs are located
       ulcl: true
 

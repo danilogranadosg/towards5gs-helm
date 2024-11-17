@@ -198,7 +198,7 @@ smf:
             # the order of UPF nodes in this path. We use the UPF's name to represent each UPF node.
             # The UPF's name should be consistent with smfcfg.yaml
             path: [BranchingUPF, AnchorUPF1]
-          - dest: 1.1.1.1/32
+          - dest: 192.168.0.7/32
             path: [BranchingUPF, AnchorUPF2]
           - dest: 9.9.9.9/32
             path: [BranchingUPF]

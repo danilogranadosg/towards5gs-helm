@@ -156,9 +156,9 @@ smf:
                     dnnUpfInfoList: # DNN information list for this S-NSSAI
                       - dnn: internet
                         pools:
-                          - cidr: 10.61.0.0/1
+                          - cidr: 10.60.0.0/16
                         staticPools:
-                          - cidr: 10.61.100.0/24
+                          - cidr: 10.60.100.0/24
             interfaces: # Interface list for this UPF
                   - interfaceType: N3 # the type of the interface (N3 or N9)
                     endpoints: # the IP address of this N3/N9 interface on this UPF
@@ -194,13 +194,13 @@ smf:
           - A: BranchingUPF
             B: AnchorUPF2
         specificPath:
-          - dest: 192.168.0.4/32 # the destination IP address on Data Network (DN)
+          - dest: 172.23.23.222/32 # the destination IP address on Data Network (DN)
             # the order of UPF nodes in this path. We use the UPF's name to represent each UPF node.
             # The UPF's name should be consistent with smfcfg.yaml
             path: [BranchingUPF, AnchorUPF1]
-          - dest: 9.9.9.9/32
+          - dest: 1.1.1.1/32
             path: [BranchingUPF, AnchorUPF2]
-          - dest: 172.23.23.222/32
+          - dest: 9.9.9.9/32
             path: [BranchingUPF]
     logger: # log output setting
       enable: true # true or false

@@ -59,6 +59,10 @@ smf:
             sNssaiUpfInfos:
               - sNssai:
                   sst: 1
+                  sd: 010203 # Slice Differentiator (3 bytes hex string, range: 000000~FFFFFF)
+                dnnUpfInfoList: # DNN information list for this S-NSSAI
+                  - dnn: internet
+                    pools:
                       - cidr: 10.60.0.0/16
                     staticPools:
                       - cidr: 10.60.100.0/24

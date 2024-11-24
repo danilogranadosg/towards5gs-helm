@@ -194,6 +194,9 @@ smf:
           - A: BranchingUPF
             B: AnchorUPF2
         specificPath:
+         specificPath:
+          - dest: 192.168.0.4/32
+            path: [BranchingUPF, AnchorUPF1]
           - dest: 172.23.23.222/32
             path: [BranchingUPF, AnchorUPF2]
           - dest: 9.9.9.9/32

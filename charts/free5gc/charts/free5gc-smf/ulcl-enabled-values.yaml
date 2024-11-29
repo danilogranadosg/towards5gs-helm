@@ -45,7 +45,7 @@ smf:
             interfaces:
               - interfaceType: N3
                 endpoints:
-                  - 192.168.56.16
+                  - 192.168.56.19
                 networkInstances:
                   - internet # Data Network Name (DNN)
               - interfaceType: N9

@@ -47,7 +47,6 @@ data:
   wrapper.sh: |
     #!/bin/sh
 
-    iptables -A FORWARD -j ACCEPT
     iptables -t nat -A POSTROUTING -s {{ $.Values.global.uesubnet }} -o upfgtp -j MASQUERADE  # Allow routing traffic comming from the UE SUBNET to the interface N6
 
     {{- if $.Values.upfb.configmap.wrapperAdditionalCommands }}

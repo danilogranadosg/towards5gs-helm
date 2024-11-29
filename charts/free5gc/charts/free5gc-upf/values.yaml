@@ -265,7 +265,7 @@ upfb:
 
   # network paramters
   n3if:  # GTP-U
-    ipAddress: 192.168.56.19
+    ipAddress: 192.168.56.16
   n9if:  # GTP-U
     ipAddress: 192.168.56.19
   n4if:  # PFCP

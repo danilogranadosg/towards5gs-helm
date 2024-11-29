@@ -48,8 +48,13 @@ data:
     #!/bin/sh
 
     iptables -A FORWARD -j ACCEPT
-    iptables -t nat -A POSTROUTING -s {{ $.Values.global.uesubnet }} -o upfgtp -j MASQUERADE  # Allow routing traffic comming from the UE SUBNET to the interface N6
+    iptables -t nat -A POSTROUTING -s {{ $.Values.global.uesubnet }} -o n6 -j MASQUERADE  # Allow routing traffic comming from the UE SUBNET to the interface N6
 
+    iptables -t nat -A POSTROUTING -o n9 -j MASQUERADE
+    iptables -t nat -A POSTROUTING -o n3 -j MASQUERADE
+    echo "1200 n6if" >> /etc/iproute2/rt_tables # create a routing table for the interface N6
+    ip rule add from {{ $.Values.global.uesubnet }} table n6if   # use the created ip table to route the traffic comming from the UE SUBNET
+    ip route add default via {{ $.Values.global.n6network.gatewayIP }} dev n6 table n6if
     {{- if $.Values.upfb.configmap.wrapperAdditionalCommands }}
     {{- $.Values.upfb.configmap.wrapperAdditionalCommands | toYaml | indent 2 }}
     {{- end }}
